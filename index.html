@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Nhập số lượng số nguyên tố cần tìm :
+<br>
+<input type="text" id="songuyento" oninput="timsonguyento(this.value)">
+
+<div id="result"></div>
+<script>
+    function ktsonguyento(i,snt) {
+       let a = true;
+        if (snt<2) {
+          a = false;
+        }if (snt == 2){
+            a = true;
+        } if (snt % 2 == 0 ) {
+           a = false;
+        }for (let i=3;i<snt-1;i++) {
+            if (snt % i == 0){
+              a = false;
+                break;
+            }
+        }
+        return a;
+
+    }
+    function timsonguyento() {
+        let b = parseInt(document.getElementById('songuyento').value);
+        let cout = 0;
+        let string = '2 ';
+        let i;
+        for (let snt = 0; cout <= b; snt++) {
+            let d = ktsonguyento(i,snt);
+            if (d == true) {
+                cout++;
+                string += snt + ' ';
+            }
+        }
+        document.getElementById('result').innerHTML=string;
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
